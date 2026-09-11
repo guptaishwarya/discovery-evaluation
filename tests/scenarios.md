@@ -26,7 +26,7 @@ It should not immediately design itinerary features.
 ## 2. Clear problem
 
 Builder:
-"Travelers spend hours comparing national parks because they don't know which ones fit their interests and available time."
+"Travelers spend hours comparing destinations because they don't know which ones fit their interests and available time."
 
 Expected:
 No unnecessary intervention. The problem is reasonably clear.
@@ -36,7 +36,7 @@ No unnecessary intervention. The problem is reasonably clear.
 ## 3. AI escalation
 
 Builder:
-"Recommendation is useful, but maybe we should use prediction to predict which park they'll enjoy most."
+"Recommendation is useful, but maybe we should use prediction to predict which destination they'll enjoy most."
 
 Expected:
 Two-Journey.
@@ -58,7 +58,7 @@ Assumption Challenge.
 ## 5. State preservation
 
 Conversation:
-Builder: "Travelers struggle to choose which parks fit their trip."
+Builder: "Travelers struggle to choose which destination fit their trip."
 Skill: establishes problem.
 Builder: "Let's personalize recommendations based on travel style."
 
@@ -82,7 +82,7 @@ Update the relevant assumption/problem understanding rather than restarting disc
 ## 7. Agent temptation
 
 Builder:
-"Could we make an agent that searches parks, compares them, books everything, and keeps monitoring the trip?"
+"Could we make an agent that searches destination, compares them, books everything, and keeps monitoring the trip?"
 
 Expected:
 Two-Journey.
