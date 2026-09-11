@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Discovery Evaluation State",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "opportunity",
+    "evidence",
+    "assumptions",
+    "unknowns",
+    "decisions",
+    "current_evaluation",
+    "orchestration"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "opportunity": {
+      "type": "object",
+      "required": [
+        "user",
+        "problem",
+        "user_goal",
+        "current_behavior",
+        "friction",
+        "proposed_solution",
+        "ai_capability"
+      ],
+      "properties": {
+        "user": {
+          "$ref": "#/$defs/field"
+        },
+        "problem": {
+          "$ref": "#/$defs/field"
+        },
+        "user_goal": {
+          "$ref": "#/$defs/field"
+        },
+        "current_behavior": {
+          "$ref": "#/$defs/field"
+        },
+        "friction": {
+          "type": "object",
+          "required": [
+            "value",
+            "journey_stage",
+            "status"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "journey_stage": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "discover",
+                "evaluate",
+                "decide",
+                "act",
+                "experience",
+                null
+              ]
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "unknown",
+                "emerging",
+                "established",
+                "challenged",
+                "invalidated"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "proposed_solution": {
+          "$ref": "#/$defs/field"
+        },
+        "ai_capability": {
+          "$ref": "#/$defs/field"
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "current_evaluation": {
+      "type": "object",
+      "properties": {
+        "problem_clarity": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "high",
+            "medium",
+            "low",
+            null
+          ]
+        },
+        "ai_fit": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "strong",
+            "moderate",
+            "weak",
+            "not_evaluated",
+            null
+          ]
+        },
+        "solution_sufficiency": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "sufficient",
+            "too_complex",
+            "insufficient",
+            "not_evaluated",
+            null
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "orchestration": {
+      "type": "object",
+      "required": [
+        "current_decision_point",
+        "last_mechanism",
+        "next_mechanism"
+      ],
+      "properties": {
+        "current_decision_point": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_mechanism": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "next_mechanism": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "field": {
+      "type": "object",
+      "required": [
+        "value",
+        "status",
+        "source"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "unknown",
+            "emerging",
+            "established",
+            "challenged",
+            "invalidated"
+          ]
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
